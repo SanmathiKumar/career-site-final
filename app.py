@@ -10,7 +10,7 @@ app = Flask(__name__)
 # Using decorator and defining the path. Here the "/" refers to the homepage
 @app.route("/")
 def hello():
-  return render_template("home.html")
+  return render_template("bootstrap-home.html")
 
 
 # Since the path of Flask is not defined it is not gonna run, so we need to do some changes.
