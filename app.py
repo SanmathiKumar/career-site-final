@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 
 # Creating the instance of the flask
 app = Flask(__name__)
@@ -6,11 +6,39 @@ app = Flask(__name__)
 # Registering the route to guide the Flask application
 # everthing after "/" is called path or route
 
+JOBS = [{
+  'id': 1,
+  'title': "Data Analyst",
+  "location": "Bengaluru",
+  "salary": 10000
+}, {
+  'id': 2,
+  'title': "Data Engineer",
+  "location": "Bengaluru",
+  "salary": 8000
+}, {
+  'id': 3,
+  'title': "Data Scientist",
+  "location": "Bengaluru",
+  "salary": 15000
+}, {
+  'id': 4,
+  'title': "Data Expert",
+  "location": "Davangere",
+  "salary": 25000
+}]
+
 
 # Using decorator and defining the path. Here the "/" refers to the homepage
 @app.route("/")
 def hello():
-  return render_template("bootstrap-home.html")
+  return render_template("bootstrap-home.html", jobs=JOBS, company_name = "Aroma")
+
+# Using the API route to display the data via jsonify 
+# jsonify() will make the objects into JSON format
+@app.route("/api/jobs")
+def list_jobs():
+  return jsonify(JOBS)
 
 
 # Since the path of Flask is not defined it is not gonna run, so we need to do some changes.
