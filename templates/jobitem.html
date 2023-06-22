@@ -5,11 +5,21 @@
   <div>
     <b>Location:</b> {{job["location"]}}
   </div>
+    <div>
+      <b>Currency:</b> {{job["currency"]}}
+    </div>
   {% if "salary" in job %}
   <div>
     <b>Salary:</b> {{job["salary"]}}
   </div>
   {% endif %}
+
+    {% if job["experience_required"] != None %}
+  <div>
+    <b>Experience Required:</b> {{job["experience_required"]}}
+  </div>
+  {% endif %}
+    
   </div>
   <div class="col-3">
   <a href="mailto:careers.aroma.com?subject=Application%20for%20{{job['title']}}&body=Name%3A%20%3CEnter%20your%20full%20name%3E%0D%0AResume%20link%3A%20%3CLink%20to%20your%20resume%3E%0D%0APersonal%20portfolio%3A%20%3CLink%3E%0D%0ALinkedin%3A%20%3CLink%3E" type="button" class="btn btn-primary btn-lg">Apply</a>
