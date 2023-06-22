@@ -1,5 +1,5 @@
 from flask import Flask, render_template, jsonify
-from database import get_db_jobs 
+from database import get_db_jobs
 
 # Creating the instance of the flask
 app = Flask(__name__)
@@ -54,7 +54,5 @@ def list_jobs():
 # Host should be 0.0.0.0 to run it locally and debug will be true because the new changes will
 # reflect immediately.
 
-print(__name__)
 if __name__ == "__main__":
-  print("Inside main")
   app.run(host="0.0.0.0", debug=True)
